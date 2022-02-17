@@ -15,7 +15,7 @@ The use of named containers and volume is not required but helps keeping everyth
 ### Two containers example
 
 ```yaml
-version: '2'
+version: "2"
 
 services:
   nginx-proxy:
@@ -35,6 +35,8 @@ services:
   acme-companion:
     image: nginxproxy/acme-companion
     container_name: nginx-proxy-acme
+    environment:
+      - DEFAULT_EMAIL=mail@yourdomain.tld
     volumes_from:
       - nginx-proxy
     volumes:
@@ -54,7 +56,7 @@ volumes:
 ### Three containers example
 
 ```yaml
-version: '2'
+version: "2"
 
 services:
   nginx-proxy:
@@ -86,6 +88,8 @@ services:
   acme-companion:
     image: nginxproxy/acme-companion
     container_name: nginx-proxy-acme
+    environment:
+      - DEFAULT_EMAIL=mail@yourdomain.tld
     volumes_from:
       - nginx-proxy
     volumes:
@@ -110,10 +114,10 @@ volumes:
 
 If you want other examples how to use this container with Docker Compose, look at:
 
-* [Nicolas Duchon's Examples](https://github.com/buchdag/letsencrypt-nginx-proxy-companion-compose) - with automated testing
-* [Evert Ramos's Examples](https://github.com/evertramos/docker-compose-letsencrypt-nginx-proxy-companion) - using docker-compose version '3'
-* [Karl Fathi's Examples](https://github.com/fatk/docker-letsencrypt-nginx-proxy-companion-examples)
-* [More examples from Karl](https://github.com/pixelfordinner/pixelcloud-docker-apps/tree/master/nginx-proxy)
-* [George Ilyes' Examples](https://github.com/gilyes/docker-nginx-letsencrypt-sample)
-* [Dmitry's simple docker-compose example](https://github.com/dmitrym0/simple-lets-encrypt-docker-compose-sample)
-* [Radek's docker-compose jenkins example](https://github.com/dataminelab/docker-jenkins-nginx-letsencrypt)
+- [Nicolas Duchon's Examples](https://github.com/buchdag/letsencrypt-nginx-proxy-companion-compose) - with automated testing
+- [Evert Ramos's Examples](https://github.com/evertramos/docker-compose-letsencrypt-nginx-proxy-companion) - using docker-compose version '3'
+- [Karl Fathi's Examples](https://github.com/fatk/docker-letsencrypt-nginx-proxy-companion-examples)
+- [More examples from Karl](https://github.com/pixelfordinner/pixelcloud-docker-apps/tree/master/nginx-proxy)
+- [George Ilyes' Examples](https://github.com/gilyes/docker-nginx-letsencrypt-sample)
+- [Dmitry's simple docker-compose example](https://github.com/dmitrym0/simple-lets-encrypt-docker-compose-sample)
+- [Radek's docker-compose jenkins example](https://github.com/dataminelab/docker-jenkins-nginx-letsencrypt)
